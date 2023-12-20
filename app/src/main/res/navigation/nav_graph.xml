@@ -34,4 +34,10 @@
         android:name="com.example.rickandmorty.ui.episodes.EpisodesFragment"
         android:label="Episodes"
         tools:layout="@layout/fragment_episodes" />
+
+    <fragment
+        android:id="@+id/episodeDetailFragment"
+        android:name="com.example.rickandmorty.ui.episodes.episodeDetail.EpisodeDetailFragment"
+        android:label="Location Detail"
+        tools:layout="@layout/fragment_episodes_detail" />
 </navigation>

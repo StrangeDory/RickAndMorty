@@ -1,4 +1,4 @@
-package com.example.rickandmorty.ui.locations.locationDetail
+package com.example.rickandmorty.ui.episodes.episodeDetail
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,22 +8,22 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import com.example.rickandmorty.data.entities.Location
-import com.example.rickandmorty.databinding.FragmentLocationDatailBinding
+import com.example.rickandmorty.data.entities.Episode
+import com.example.rickandmorty.databinding.FragmentEpisodesDetailBinding
 import com.example.rickandmorty.utils.Resource
 import com.example.rickandmorty.utils.autoCleared
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class LocationDetailFragment: Fragment() {
-    private var binding: FragmentLocationDatailBinding by autoCleared()
-    private val viewModel: LocationDetailViewModel by viewModels()
+class EpisodeDetailFragment: Fragment() {
+    private var binding: FragmentEpisodesDetailBinding by autoCleared()
+    private val viewModel: EpisodeDetailViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentLocationDatailBinding.inflate(inflater, container, false)
+        binding = FragmentEpisodesDetailBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -34,12 +34,12 @@ class LocationDetailFragment: Fragment() {
     }
 
     private fun setupObservers() {
-        viewModel.location.observe(viewLifecycleOwner, Observer {
+        viewModel.episode.observe(viewLifecycleOwner, Observer {
             when (it.status) {
                 Resource.Status.SUCCESS -> {
                     bindCharacter(it.data!!)
                     binding.progressBar.visibility = View.GONE
-                    binding.locationCl.visibility = View.VISIBLE
+                    binding.episodeCl.visibility = View.VISIBLE
                 }
 
                 Resource.Status.ERROR ->
@@ -47,15 +47,15 @@ class LocationDetailFragment: Fragment() {
 
                 Resource.Status.LOADING -> {
                     binding.progressBar.visibility = View.VISIBLE
-                    binding.locationCl.visibility = View.GONE
+                    binding.episodeCl.visibility = View.GONE
                 }
             }
         })
     }
 
-    private fun bindCharacter(location: Location) {
-        binding.nameLocation.text = location.name
-        binding.typeLocation.text = location.type
-        binding.dimensionLocation.text = location.dimension
+    private fun bindCharacter(episode: Episode) {
+        binding.nameEpisode.text = episode.name
+        binding.episodeEpisode.text = episode.episode
+        binding.airDateEpisode.text = episode.air_date
     }
 }

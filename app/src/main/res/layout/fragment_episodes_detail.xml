@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.locations.locationDetail.LocationDetailFragment">
+    tools:context=".ui.episodes.episodeDetail.EpisodeDetailFragment">
 
     <ProgressBar
         android:id="@+id/progress_bar"
@@ -15,7 +15,7 @@
         tools:visibility="gone" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/location_cl"
+        android:id="@+id/episode_cl"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -29,56 +29,56 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/nameLocation"
+            android:id="@+id/nameEpisode"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            tools:text="TextView"
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/image" />
+            app:layout_constraintTop_toBottomOf="@id/image"
+            tools:text="TextView" />
 
         <TextView
-            android:id="@+id/typeLocationText"
+            android:id="@+id/episodeEpisodeText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="60dp"
             android:layout_marginTop="30dp"
-            android:text="Type:"
+            android:text="Episode:"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/nameLocation" />
+            app:layout_constraintTop_toBottomOf="@+id/nameEpisode" />
 
         <TextView
-            android:id="@+id/typeLocation"
+            android:id="@+id/episodeEpisode"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:layout_marginEnd="60dp"
-            tools:text="TextView"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/nameLocation" />
+            app:layout_constraintTop_toBottomOf="@+id/nameEpisode"
+            tools:text="TextView" />
 
         <TextView
-            android:id="@+id/dimensionLocationText"
+            android:id="@+id/airDateEpisodeText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="60dp"
             android:layout_marginTop="10dp"
-            android:text="Dimension:"
+            android:text="Air date:"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/typeLocationText" />
+            app:layout_constraintTop_toBottomOf="@+id/episodeEpisodeText" />
 
         <TextView
-            android:id="@+id/dimensionLocation"
+            android:id="@+id/airDateEpisode"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="60dp"
-            tools:text="TextView"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/typeLocation" />
+            app:layout_constraintTop_toBottomOf="@+id/episodeEpisode"
+            tools:text="TextView" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
