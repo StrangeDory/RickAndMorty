@@ -46,6 +46,7 @@ class LocationViewHolder(private val itemBinding: ItemLocationBinding, private v
         this.location = item
         itemBinding.nameLocation.text = item.name
         itemBinding.typeLocation.text = item.type
+        itemBinding.dimensionLocation.text = "Dimension: ${item.dimension}"
 //        Glide.with(itemBinding.root)
 //            .load(item.image)
 //            .transform(CircleCrop())

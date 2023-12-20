@@ -9,6 +9,7 @@ import androidx.navigation.ui.setupWithNavController
 import com.example.rickandmorty.R
 import com.example.rickandmorty.databinding.ActivityMainBinding
 import com.example.rickandmorty.ui.characters.CharactersFragment
+import com.example.rickandmorty.ui.episodes.EpisodesFragment
 import com.example.rickandmorty.ui.locations.LocationsFragment
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -44,12 +45,12 @@ class MainActivity : AppCompatActivity() {
                     }
                     return@setOnNavigationItemSelectedListener true
                 }
-//                R.id.nav_lecturers -> if (fragment !is LecturersFragment) {
-//                    navController.graph = navController.graph.apply {
-//                        startDestination = R.id.nav_lecturers
-//                    }
-//                    return@setOnNavigationItemSelectedListener true
-//                }
+                R.id.nav_episodes -> if (fragment !is EpisodesFragment) {
+                    navController.graph = navController.graph.apply {
+                        startDestination = R.id.episodesFragment
+                    }
+                    return@setOnNavigationItemSelectedListener true
+                }
             }
 
             return@setOnNavigationItemSelectedListener false

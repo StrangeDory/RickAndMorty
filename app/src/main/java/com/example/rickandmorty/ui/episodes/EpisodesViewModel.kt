@@ -1,12 +1,12 @@
-package com.example.rickandmorty.ui.locations
+package com.example.rickandmorty.ui.episodes
 
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.ViewModel
 import com.example.rickandmorty.data.repository.Repository
 
-class LocationsViewModel @ViewModelInject constructor(
+class EpisodesViewModel @ViewModelInject constructor(
     private val repository: Repository
 ) : ViewModel() {
 
-    val locations = repository.getLocations()
+    val episodes = repository.getEpisodes()
 }

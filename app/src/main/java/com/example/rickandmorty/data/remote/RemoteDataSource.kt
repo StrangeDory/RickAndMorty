@@ -10,4 +10,6 @@ class RemoteDataSource @Inject constructor(
     suspend fun getCharacter(id: Int) = getResult { service.getCharacter(id) }
     suspend fun getLocations() = getResult { service.getAllLocations() }
     suspend fun getLocation(id: Int) = getResult { service.getLocation(id) }
+    suspend fun getEpisodes() = getResult { service.getAllEpisodes() }
+    suspend fun getEpisode(id: Int) = getResult { service.getEpisode(id) }
 }

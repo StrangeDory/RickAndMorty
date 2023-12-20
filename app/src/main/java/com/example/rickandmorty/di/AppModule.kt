@@ -5,7 +5,7 @@ import com.example.rickandmorty.data.local.AppDatabase
 import com.example.rickandmorty.data.local.Dao
 import com.example.rickandmorty.data.remote.RemoteDataSource
 import com.example.rickandmorty.data.remote.Service
-import com.example.rickandmorty.data.repository.CharacterRepository
+import com.example.rickandmorty.data.repository.Repository
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import dagger.Module
@@ -44,11 +44,11 @@ object AppModule {
 
     @Singleton
     @Provides
-    fun provideCharacterDao(db: AppDatabase) = db.characterDao()
+    fun provideCharacterDao(db: AppDatabase) = db.Dao()
 
     @Singleton
     @Provides
     fun provideRepository(remoteDataSource: RemoteDataSource,
                           localDataSource: Dao) =
-        CharacterRepository(remoteDataSource, localDataSource)
+        Repository(remoteDataSource, localDataSource)
 }

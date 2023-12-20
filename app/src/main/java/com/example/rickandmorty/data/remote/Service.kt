@@ -2,6 +2,8 @@ package com.example.rickandmorty.data.remote
 
 import com.example.rickandmorty.data.entities.Character
 import com.example.rickandmorty.data.entities.CharacterList
+import com.example.rickandmorty.data.entities.Episode
+import com.example.rickandmorty.data.entities.EpisodeList
 import com.example.rickandmorty.data.entities.Location
 import com.example.rickandmorty.data.entities.LocationList
 import retrofit2.Response
@@ -20,4 +22,10 @@ interface Service {
 
     @GET("location/{id}")
     suspend fun getLocation(@Path("id") id: Int): Response<Location>
+
+    @GET("episode")
+    suspend fun getAllEpisodes() : Response<EpisodeList>
+
+    @GET("episode/{id}")
+    suspend fun getEpisode(@Path("id") id: Int): Response<Episode>
 }

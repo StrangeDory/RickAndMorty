@@ -2,10 +2,10 @@ package com.example.rickandmorty.ui.characters
 
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.ViewModel
-import com.example.rickandmorty.data.repository.CharacterRepository
+import com.example.rickandmorty.data.repository.Repository
 
 class CharactersViewModel @ViewModelInject constructor(
-    private val repository: CharacterRepository
+    private val repository: Repository
 ) : ViewModel() {
 
     val characters = repository.getCharacters()

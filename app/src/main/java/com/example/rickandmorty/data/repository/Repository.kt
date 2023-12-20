@@ -5,7 +5,7 @@ import com.example.rickandmorty.data.remote.RemoteDataSource
 import com.example.rickandmorty.utils.performGetOperation
 import javax.inject.Inject
 
-class CharacterRepository @Inject constructor(
+class Repository @Inject constructor(
     private val remoteDataSource: RemoteDataSource,
     private val localDataSource: Dao
 ) {
@@ -32,5 +32,17 @@ class CharacterRepository @Inject constructor(
         databaseQuery = { localDataSource.getAllLocations() },
         networkCall = { remoteDataSource.getLocations() },
         saveCallResult = { localDataSource.insertAllLocations(it.results) }
+    )
+
+    fun getEpisode(id: Int) = performGetOperation(
+        databaseQuery = { localDataSource.getEpisode(id) },
+        networkCall = { remoteDataSource.getEpisode(id) },
+        saveCallResult = { localDataSource.insertEpisode(it) }
+    )
+
+    fun getEpisodes() = performGetOperation(
+        databaseQuery = { localDataSource.getAllEpisodes() },
+        networkCall = { remoteDataSource.getEpisodes() },
+        saveCallResult = { localDataSource.insertAllEpisodes(it.results) }
     )
 }

@@ -46,12 +46,13 @@ class CharacterViewHolder(private val itemBinding: ItemCharacterBinding, private
     @SuppressLint("SetTextI18n")
     fun bind(item: Character) {
         this.character = item
-        itemBinding.name.text = item.name
-        itemBinding.speciesAndStatus.text = """${item.species} - ${item.status}"""
+        itemBinding.nameCharacter.text = item.name
+        itemBinding.speciesAndStatusCharacter.text = """${item.species} - ${item.status}"""
+        itemBinding.genderCharacter.text = item.gender
         Glide.with(itemBinding.root)
             .load(item.image)
             .transform(CircleCrop())
-            .into(itemBinding.image)
+            .into(itemBinding.imageCharacter)
     }
 
     override fun onClick(v: View?) {
