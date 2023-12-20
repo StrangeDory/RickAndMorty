@@ -5,10 +5,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.rickandmorty.R
 import com.example.rickandmorty.databinding.FragmentLocationsBinding
 import com.example.rickandmorty.utils.Resource
 import dagger.hilt.android.AndroidEntryPoint
@@ -57,9 +60,9 @@ class LocationsFragment: Fragment(), LocationsAdapter.LocationItemListener {
     }
 
     override fun onClickedLocation(locationId: Int) {
-//        findNavController().navigate(
-//            R.id.characterDetailFragment,
-//            bundleOf("id" to locationId)
-//        )
+        findNavController().navigate(
+            R.id.locationDetailFragment,
+            bundleOf("id" to locationId)
+        )
     }
 }
