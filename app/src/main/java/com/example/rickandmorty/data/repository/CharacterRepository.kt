@@ -1,13 +1,13 @@
 package com.example.rickandmorty.data.repository
 
-import com.example.rickandmorty.data.local.CharacterDao
-import com.example.rickandmorty.data.remote.CharacterRemoteDataSource
+import com.example.rickandmorty.data.local.Dao
+import com.example.rickandmorty.data.remote.RemoteDataSource
 import com.example.rickandmorty.utils.performGetOperation
 import javax.inject.Inject
 
 class CharacterRepository @Inject constructor(
-    private val remoteDataSource: CharacterRemoteDataSource,
-    private val localDataSource: CharacterDao
+    private val remoteDataSource: RemoteDataSource,
+    private val localDataSource: Dao
 ) {
 
     fun getCharacter(id: Int) = performGetOperation(

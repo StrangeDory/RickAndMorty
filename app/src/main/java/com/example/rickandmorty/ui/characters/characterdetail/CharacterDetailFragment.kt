@@ -11,7 +11,7 @@ import androidx.lifecycle.Observer
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.CircleCrop
 import com.example.rickandmorty.data.entities.Character
-import com.example.rickandmorty.databinding.CharacterDetailFragmentBinding
+import com.example.rickandmorty.databinding.FragmentCharacterDetailBinding
 import com.example.rickandmorty.utils.Resource
 import com.example.rickandmorty.utils.autoCleared
 import dagger.hilt.android.AndroidEntryPoint
@@ -19,14 +19,14 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class CharacterDetailFragment : Fragment() {
 
-    private var binding: CharacterDetailFragmentBinding by autoCleared()
+    private var binding: FragmentCharacterDetailBinding by autoCleared()
     private val viewModel: CharacterDetailViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = CharacterDetailFragmentBinding.inflate(inflater, container, false)
+        binding = FragmentCharacterDetailBinding.inflate(inflater, container, false)
         return binding.root
     }
 

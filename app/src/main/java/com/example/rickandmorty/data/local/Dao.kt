@@ -8,7 +8,7 @@ import androidx.room.Query
 import com.example.rickandmorty.data.entities.Character
 
 @Dao
-interface CharacterDao {
+interface Dao {
 
     @Query("SELECT * FROM characters")
     fun getAllCharacters() : LiveData<List<Character>>

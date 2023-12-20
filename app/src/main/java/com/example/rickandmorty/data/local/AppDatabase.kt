@@ -9,7 +9,7 @@ import com.example.rickandmorty.data.entities.Character
 @Database(entities = [Character::class], version = 1, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
 
-    abstract fun characterDao(): CharacterDao
+    abstract fun characterDao(): Dao
 
     companion object {
         @Volatile private var instance: AppDatabase? = null
@@ -18,7 +18,7 @@ abstract class AppDatabase : RoomDatabase() {
             instance ?: synchronized(this) { instance ?: buildDatabase(context).also { instance = it } }
 
         private fun buildDatabase(appContext: Context) =
-            Room.databaseBuilder(appContext, AppDatabase::class.java, "characters")
+            Room.databaseBuilder(appContext, AppDatabase::class.java, "RickAndMorty")
                 .fallbackToDestructiveMigration()
                 .build()
     }

@@ -12,7 +12,7 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.rickandmorty.R
-import com.example.rickandmorty.databinding.CharactersFragmentBinding
+import com.example.rickandmorty.databinding.FragmentCharactersBinding
 import com.example.rickandmorty.utils.Resource
 import com.example.rickandmorty.utils.autoCleared
 import dagger.hilt.android.AndroidEntryPoint
@@ -20,7 +20,7 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class CharactersFragment : Fragment(), CharactersAdapter.CharacterItemListener {
 
-    private var binding: CharactersFragmentBinding by autoCleared()
+    private var binding: FragmentCharactersBinding by autoCleared()
     private val viewModel: CharactersViewModel by viewModels()
     private lateinit var adapter: CharactersAdapter
 
@@ -28,7 +28,7 @@ class CharactersFragment : Fragment(), CharactersAdapter.CharacterItemListener {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = CharactersFragmentBinding.inflate(inflater, container, false)
+        binding = FragmentCharactersBinding.inflate(inflater, container, false)
         return binding.root
     }
 

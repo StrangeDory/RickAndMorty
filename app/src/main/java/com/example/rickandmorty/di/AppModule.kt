@@ -2,9 +2,9 @@ package com.example.rickandmorty.di
 
 import android.content.Context
 import com.example.rickandmorty.data.local.AppDatabase
-import com.example.rickandmorty.data.local.CharacterDao
-import com.example.rickandmorty.data.remote.CharacterRemoteDataSource
-import com.example.rickandmorty.data.remote.CharacterService
+import com.example.rickandmorty.data.local.Dao
+import com.example.rickandmorty.data.remote.RemoteDataSource
+import com.example.rickandmorty.data.remote.Service
 import com.example.rickandmorty.data.repository.CharacterRepository
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
@@ -32,11 +32,11 @@ object AppModule {
     fun provideGson(): Gson = GsonBuilder().create()
 
     @Provides
-    fun provideCharacterService(retrofit: Retrofit): CharacterService = retrofit.create(CharacterService::class.java)
+    fun provideCharacterService(retrofit: Retrofit): Service = retrofit.create(Service::class.java)
 
     @Singleton
     @Provides
-    fun provideCharacterRemoteDataSource(characterService: CharacterService) = CharacterRemoteDataSource(characterService)
+    fun provideCharacterRemoteDataSource(service: Service) = RemoteDataSource(service)
 
     @Singleton
     @Provides
@@ -48,7 +48,7 @@ object AppModule {
 
     @Singleton
     @Provides
-    fun provideRepository(remoteDataSource: CharacterRemoteDataSource,
-                          localDataSource: CharacterDao) =
+    fun provideRepository(remoteDataSource: RemoteDataSource,
+                          localDataSource: Dao) =
         CharacterRepository(remoteDataSource, localDataSource)
 }
