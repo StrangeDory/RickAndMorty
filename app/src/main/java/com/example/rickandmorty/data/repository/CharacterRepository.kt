@@ -13,12 +13,24 @@ class CharacterRepository @Inject constructor(
     fun getCharacter(id: Int) = performGetOperation(
         databaseQuery = { localDataSource.getCharacter(id) },
         networkCall = { remoteDataSource.getCharacter(id) },
-        saveCallResult = { localDataSource.insert(it) }
+        saveCallResult = { localDataSource.insertCharacter(it) }
     )
 
     fun getCharacters() = performGetOperation(
         databaseQuery = { localDataSource.getAllCharacters() },
         networkCall = { remoteDataSource.getCharacters() },
-        saveCallResult = { localDataSource.insertAll(it.results) }
+        saveCallResult = { localDataSource.insertAllCharacters(it.results) }
+    )
+
+    fun getLocation(id: Int) = performGetOperation(
+        databaseQuery = { localDataSource.getLocation(id) },
+        networkCall = { remoteDataSource.getLocation(id) },
+        saveCallResult = { localDataSource.insertLocation(it) }
+    )
+
+    fun getLocations() = performGetOperation(
+        databaseQuery = { localDataSource.getAllLocations() },
+        networkCall = { remoteDataSource.getLocations() },
+        saveCallResult = { localDataSource.insertAllLocations(it.results) }
     )
 }

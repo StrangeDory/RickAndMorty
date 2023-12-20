@@ -6,6 +6,7 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.example.rickandmorty.data.entities.Character
+import com.example.rickandmorty.data.entities.Location
 
 @Dao
 interface Dao {
@@ -17,10 +18,20 @@ interface Dao {
     fun getCharacter(id: Int): LiveData<Character>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertAll(characters: List<Character>)
+    suspend fun insertAllCharacters(characters: List<Character>)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insert(character: Character)
+    suspend fun insertCharacter(character: Character)
 
+    @Query("SELECT * FROM locations")
+    fun getAllLocations() : LiveData<List<Location>>
 
+    @Query("SELECT * FROM locations WHERE id = :id")
+    fun getLocation(id: Int): LiveData<Location>
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertAllLocations(locations: List<Location>)
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertLocation(location: Location)
 }

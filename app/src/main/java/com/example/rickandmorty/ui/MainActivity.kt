@@ -9,6 +9,7 @@ import androidx.navigation.ui.setupWithNavController
 import com.example.rickandmorty.R
 import com.example.rickandmorty.databinding.ActivityMainBinding
 import com.example.rickandmorty.ui.characters.CharactersFragment
+import com.example.rickandmorty.ui.locations.LocationsFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 
@@ -31,18 +32,18 @@ class MainActivity : AppCompatActivity() {
         binding.bottomNavigationView.setOnNavigationItemSelectedListener {
             val fragment = navHostFragment.childFragmentManager.fragments[0]
             when (it.itemId) {
-                R.id.nav_main -> if (fragment !is CharactersFragment) {
+                R.id.nav_characters -> if (fragment !is CharactersFragment) {
                     navController.graph = navController.graph.apply {
                         startDestination = R.id.charactersFragment
                     }
                     return@setOnNavigationItemSelectedListener true
                 }
-//                R.id.nav_search -> if (fragment !is CoursesFragment) {
-//                    navController.graph = navController.graph.apply {
-//                        startDestination = R.id.nav_search
-//                    }
-//                    return@setOnNavigationItemSelectedListener true
-//                }
+                R.id.nav_locations -> if (fragment !is LocationsFragment) {
+                    navController.graph = navController.graph.apply {
+                        startDestination = R.id.locationsFragment
+                    }
+                    return@setOnNavigationItemSelectedListener true
+                }
 //                R.id.nav_lecturers -> if (fragment !is LecturersFragment) {
 //                    navController.graph = navController.graph.apply {
 //                        startDestination = R.id.nav_lecturers

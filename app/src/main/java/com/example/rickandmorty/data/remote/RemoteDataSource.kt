@@ -8,4 +8,6 @@ class RemoteDataSource @Inject constructor(
 
     suspend fun getCharacters() = getResult { service.getAllCharacters() }
     suspend fun getCharacter(id: Int) = getResult { service.getCharacter(id) }
+    suspend fun getLocations() = getResult { service.getAllLocations() }
+    suspend fun getLocation(id: Int) = getResult { service.getLocation(id) }
 }

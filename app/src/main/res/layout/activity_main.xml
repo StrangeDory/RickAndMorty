@@ -11,6 +11,7 @@
         android:id="@+id/toolbarLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/navHostFragment"
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.appcompat.widget.Toolbar
@@ -27,8 +28,9 @@
         android:id="@+id/navHostFragment"
         android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
         app:defaultNavHost="true"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
         app:layout_constraintTop_toBottomOf="@+id/toolbarLayout"
         app:navGraph="@navigation/nav_graph" />
 

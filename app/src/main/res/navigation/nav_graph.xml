@@ -16,4 +16,10 @@
         android:name="com.example.rickandmorty.ui.characters.characterdetail.CharacterDetailFragment"
         android:label="Character Detail"
         tools:layout="@layout/fragment_character_detail" />
+
+    <fragment
+        android:id="@+id/locationsFragment"
+        android:name="com.example.rickandmorty.ui.locations.LocationsFragment"
+        android:label="Locations"
+        tools:layout="@layout/fragment_locations" />
 </navigation>
