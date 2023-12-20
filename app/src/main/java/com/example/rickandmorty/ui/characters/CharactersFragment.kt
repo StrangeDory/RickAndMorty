@@ -62,7 +62,7 @@ class CharactersFragment : Fragment(), CharactersAdapter.CharacterItemListener {
 
     override fun onClickedCharacter(characterId: Int) {
         findNavController().navigate(
-            R.id.action_charactersFragment_to_characterDetailFragment,
+            R.id.characterDetailFragment,
             bundleOf("id" to characterId)
         )
     }

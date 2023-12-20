@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val navHostFragment: NavHostFragment =
-            supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+            supportFragmentManager.findFragmentById(R.id.navHostFragment) as NavHostFragment
         val navController: NavController = navHostFragment.navController
 
         val appBarConfiguration: AppBarConfiguration = AppBarConfiguration(navController.graph)
@@ -29,12 +29,11 @@ class MainActivity : AppCompatActivity() {
 
         binding.bottomNavigationView.setupWithNavController(navController)
         binding.bottomNavigationView.setOnNavigationItemSelectedListener {
-            val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment)
-            val fragment = navHostFragment?.childFragmentManager?.fragments?.get(0)
+            val fragment = navHostFragment.childFragmentManager.fragments[0]
             when (it.itemId) {
                 R.id.nav_main -> if (fragment !is CharactersFragment) {
                     navController.graph = navController.graph.apply {
-                        startDestination = R.id.nav_main
+                        startDestination = R.id.charactersFragment
                     }
                     return@setOnNavigationItemSelectedListener true
                 }
