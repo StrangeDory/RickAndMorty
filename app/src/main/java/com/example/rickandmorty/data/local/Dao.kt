@@ -19,10 +19,10 @@ interface Dao {
     fun getCharacter(id: Int): LiveData<Character>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertAllCharacters(characters: List<Character>)
+    fun insertAllCharacters(characters: List<Character>)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertCharacter(character: Character)
+    fun insertCharacter(character: Character)
 
     @Query("SELECT * FROM locations")
     fun getAllLocations() : LiveData<List<Location>>
@@ -31,10 +31,10 @@ interface Dao {
     fun getLocation(id: Int): LiveData<Location>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertAllLocations(locations: List<Location>)
+    fun insertAllLocations(locations: List<Location>)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertLocation(location: Location)
+    fun insertLocation(location: Location)
 
     @Query("SELECT * FROM episodes")
     fun getAllEpisodes() : LiveData<List<Episode>>
@@ -43,8 +43,8 @@ interface Dao {
     fun getEpisode(id: Int): LiveData<Episode>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertAllEpisodes(episodes: List<Episode>)
+    fun insertAllEpisodes(episodes: List<Episode>)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertEpisode(episode: Episode)
+    fun insertEpisode(episode: Episode)
 }
