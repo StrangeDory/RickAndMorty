@@ -22,6 +22,11 @@ class Repository @Inject constructor(
         saveCallResult = { localDataSource.insertAllCharacters(it.results) }
     )
 
+    fun getCharactersByName(name: String) = performGetOperation(
+        databaseQuery = { localDataSource.getCharactersByName(name) },
+        networkCall = { remoteDataSource.getCharactersByName(name) }
+    )
+
     fun getLocation(id: Int) = performGetOperation(
         databaseQuery = { localDataSource.getLocation(id) },
         networkCall = { remoteDataSource.getLocation(id) },

@@ -4,4 +4,17 @@
     <string name="menu_item_characters">Characters</string>
     <string name="menu_item_locations">Locations</string>
     <string name="menu_item_episodes">Episodes</string>
+
+    <string name="filter_title_btn_reset">Reset</string>
+    <string name="filter_title_btn_apply">Apply</string>
+    <string name="filter_title_filter">Filter</string>
+    <string name="filter_title_status">Status</string>
+    <string name="filter_txt_chip_alive">Alive</string>
+    <string name="filter_txt_chip_dead">Dead</string>
+    <string name="filter_txt_chip_unknown">unknown</string>
+    <string name="filter_title_gender">Gender</string>
+    <string name="filter_txt_checkbox_female">Female</string>
+    <string name="filter_txt_checkbox_genderless">Genderless</string>
+    <string name="filter_txt_checkbox_male">Male</string>
+    <string name="filter_txt_checkbox_unknown">unknown</string>
 </resources>

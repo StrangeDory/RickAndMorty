@@ -9,6 +9,7 @@ import com.example.rickandmorty.data.entities.LocationList
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path
+import retrofit2.http.Query
 
 interface Service {
     @GET("character")
@@ -16,6 +17,10 @@ interface Service {
 
     @GET("character/{id}")
     suspend fun getCharacter(@Path("id") id: Int): Response<Character>
+
+    @GET("character")
+    suspend fun getCharactersByName(@Query("name") name : String): Response<CharacterList>
+
 
     @GET("location")
     suspend fun getAllLocations() : Response<LocationList>

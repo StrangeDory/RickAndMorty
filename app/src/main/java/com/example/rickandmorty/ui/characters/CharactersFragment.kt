@@ -36,6 +36,11 @@ class CharactersFragment : Fragment(), CharactersAdapter.CharacterItemListener {
         super.onViewCreated(view, savedInstanceState)
         setupRecyclerView()
         setupObservers()
+        binding.btnFilter.setOnClickListener {
+            findNavController().navigate(
+                R.id.characterFilterFragment
+            )
+        }
     }
 
     private fun setupRecyclerView() {
