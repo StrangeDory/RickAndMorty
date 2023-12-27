@@ -8,4 +8,6 @@
     <color name="black_gray">#565656</color>
     <color name="black_ligth">#171717</color>
     <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="green_opacity">#9988e23b</color>
 </resources>

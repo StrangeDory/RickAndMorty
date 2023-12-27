@@ -51,7 +51,6 @@ class CharacterViewHolder(private val itemBinding: ItemCharacterBinding, private
         itemBinding.genderCharacter.text = item.gender
         Glide.with(itemBinding.root)
             .load(item.image)
-            .transform(CircleCrop())
             .into(itemBinding.imageCharacter)
     }
 

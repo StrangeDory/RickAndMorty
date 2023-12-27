@@ -11,6 +11,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.rickandmorty.R
 import com.example.rickandmorty.databinding.FragmentEpisodesBinding
 import com.example.rickandmorty.utils.Resource
@@ -38,7 +39,7 @@ class EpisodesFragment: Fragment(), EpisodesAdapter.EpisodeItemListener {
 
     private fun setupRecyclerView() {
         adapter = EpisodesAdapter(this)
-        binding.episodesRecyclerView.layoutManager = LinearLayoutManager(requireContext())
+        binding.episodesRecyclerView.layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
         binding.episodesRecyclerView.adapter = adapter
     }
 

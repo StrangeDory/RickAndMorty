@@ -11,6 +11,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.rickandmorty.R
 import com.example.rickandmorty.databinding.FragmentLocationsBinding
 import com.example.rickandmorty.utils.Resource
@@ -39,7 +40,7 @@ class LocationsFragment: Fragment(), LocationsAdapter.LocationItemListener {
 
     private fun setupRecyclerView() {
         adapter = LocationsAdapter(this)
-        binding.locationsRecyclerView.layoutManager = LinearLayoutManager(requireContext())
+        binding.locationsRecyclerView.layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
         binding.locationsRecyclerView.adapter = adapter
     }
 
