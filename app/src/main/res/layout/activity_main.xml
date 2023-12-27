@@ -38,8 +38,10 @@
         android:id="@+id/bottomNavigationView"
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
-        android:background="@color/green"
+        android:background="?android:attr/windowBackground"
+        android:itemBackground="@color/green"
         app:labelVisibilityMode="labeled"
+        app:itemTextColor="@color/black_ligth"
         app:layout_constraintBottom_toBottomOf="parent"
         app:menu="@menu/menu_bottom" />
 </androidx.constraintlayout.widget.ConstraintLayout>
