@@ -41,12 +41,12 @@ class FilterFragment: BottomSheetDialogFragment() {
 
         binding.btnMakeFilter.setOnClickListener {
             if(binding.chipgroupStatus.getTextChipChecked().isNotEmpty() && binding.radiogroupGender.getTextButtonChecked().isNotEmpty()) {
-                viewModel.getByStatusAndGender(binding.chipgroupStatus.getTextChipChecked(), binding.radiogroupGender.getTextButtonChecked(), 1)
+                viewModel.getByStatusAndGender(binding.chipgroupStatus.getTextChipChecked(), binding.radiogroupGender.getTextButtonChecked())
             }else{
                 if(binding.chipgroupStatus.getTextChipChecked().isNotEmpty()){
-                    viewModel.getByStatus(binding.chipgroupStatus.getTextChipChecked(), 1)
+                    viewModel.getByStatus(binding.chipgroupStatus.getTextChipChecked())
                 }else{
-                    viewModel.getByGender(binding.radiogroupGender.getTextButtonChecked(), 1)
+                    viewModel.getByGender(binding.radiogroupGender.getTextButtonChecked())
                 }
             }
 
@@ -58,7 +58,7 @@ class FilterFragment: BottomSheetDialogFragment() {
 
     fun ChipGroup.getTextChipChecked(): String{
         val selectedId: Int = this.checkedChipId
-        return if(selectedId > -1) findViewById<Chip>(selectedId).text.toString() else " "
+        return if(selectedId > -1) findViewById<Chip>(selectedId).text.toString() else ""
     }
 
     fun ChipGroup.setChipChecked(selectedId: Int){
@@ -67,7 +67,7 @@ class FilterFragment: BottomSheetDialogFragment() {
 
     fun RadioGroup.getTextButtonChecked(): String {
         val selectedId: Int = this.checkedRadioButtonId
-        return if(selectedId > -1) findViewById<RadioButton>(selectedId).text.toString() else " "
+        return if(selectedId > -1) findViewById<RadioButton>(selectedId).text.toString() else ""
     }
 
     fun RadioGroup.setButtonChecked(selectedId: Int) {

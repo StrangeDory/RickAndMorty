@@ -12,15 +12,24 @@ import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface Service {
-    @GET("character")
+    @GET("character/?name=Rick")
     suspend fun getAllCharacters() : Response<CharacterList>
 
     @GET("character/{id}")
     suspend fun getCharacter(@Path("id") id: Int): Response<Character>
 
-    @GET("character")
-    suspend fun getCharactersByName(@Query("name") name : String): Response<CharacterList>
+    @GET("character/?name={name}")
+    suspend fun getCharactersByName(@Path("name") name : String): Response<CharacterList>
 
+    @GET("character")
+    suspend fun getCharactersByStatusAndGender(@Query("status") status : String,
+                                               @Query("gender") gender : String): Response<CharacterList>
+
+    @GET("character")
+    suspend fun getCharactersByStatus(@Query("status") status : String): Response<CharacterList>
+
+    @GET("character/{gender}")
+    suspend fun getCharactersByGender(@Path("gender") gender : String): Response<CharacterList>
 
     @GET("location")
     suspend fun getAllLocations() : Response<LocationList>

@@ -25,6 +25,23 @@ class Repository @Inject constructor(
     fun getCharactersByName(name: String) = performGetOperation(
         databaseQuery = { localDataSource.getCharactersByName(name) },
         networkCall = { remoteDataSource.getCharactersByName(name) }
+
+    )
+
+    fun getCharactersByStatusAndGender(status : String, gender: String) = performGetOperation(
+        databaseQuery = { localDataSource.getCharactersByStatusAndGender(status, gender) },
+        networkCall = { remoteDataSource.getCharactersByStatusAndGender(status, gender) }
+    )
+
+    fun getCharactersByStatus(status : String) = performGetOperation(
+        databaseQuery = { localDataSource.getCharactersByStatus(status) },
+        networkCall = { remoteDataSource.getCharactersByStatus(status) }
+    )
+
+    fun getCharactersByGender(gender: String) = performGetOperation(
+        databaseQuery = { localDataSource.getCharactersByGender(gender) },
+        networkCall = { remoteDataSource.getCharactersByGender(gender) },
+        saveCallResult = { localDataSource.insertAllCharacters(it.results) }
     )
 
     fun getLocation(id: Int) = performGetOperation(

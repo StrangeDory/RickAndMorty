@@ -21,6 +21,15 @@ interface Dao {
     @Query("SELECT * FROM characters WHERE name = :characterName")
     fun getCharactersByName(characterName: String) : LiveData<List<Character>>
 
+    @Query("SELECT * FROM characters WHERE status = :status AND gender = :gender")
+    fun getCharactersByStatusAndGender(status : String, gender: String) : LiveData<List<Character>>
+
+    @Query("SELECT * FROM characters WHERE status = :status")
+    fun getCharactersByStatus(status : String) : LiveData<List<Character>>
+
+    @Query("SELECT * FROM characters WHERE gender = :gender")
+    fun getCharactersByGender(gender: String) : LiveData<List<Character>>
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertAllCharacters(characters: List<Character>)
 
